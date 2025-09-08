@@ -1,7 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from "react";
 import React, { useEffect } from "react";
 import { Camera, type CameraProps } from "react-native-vision-camera";
-import { useSharedValue } from "react-native-worklets-core";
+import { useSharedValue, Worklets } from "react-native-worklets-core";
 import { useBarcodeScanner } from "../hooks";
 import type { Barcode } from "../types";
 import { CameraHighlights } from "./CameraHighlights";
@@ -21,6 +21,8 @@ export const BarcodeCamera: FunctionComponent<
     };
   }, [isMountedRef]);
 
+  const onBarcodeScannedJS = Worklets.createRunOnJS(onBarcodeScanned);
+
   const { props: cameraProps, highlights } = useBarcodeScanner({
     fps: 5,
     barcodeTypes: ["ean-13"],
@@ -35,6 +37,7 @@ export const BarcodeCamera: FunctionComponent<
           barcodes.map((barcode) => `${barcode.type}:${barcode.value}`),
         )} !`,
       );
+      onBarcodeScannedJS(barcodes);
     },
   });
 
