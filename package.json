@@ -45,8 +45,8 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-vision-camera": ">=4.7.2",
-    "react-native-worklets-core": ">=1.6.2"
+    "react-native-vision-camera": ">=4.0.0-0",
+    "react-native-worklets-core": ">=1.1.1-0"
   },
   "devDependencies": {
     "@mgcrea/eslint-config-react-native": "^0.13.0",
