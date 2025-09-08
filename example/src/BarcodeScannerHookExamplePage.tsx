@@ -40,7 +40,6 @@ export const BarcodeScannerHookExamplePage: FunctionComponent = () => {
     }, []);
 
   const onBarcodeScanned = (barcodes: Barcode[]) => {
-    'worklet';
     console.log(
       `Scanned ${barcodes.length} codes with values=${JSON.stringify(
         barcodes.map(barcode => `${barcode.type}:${barcode.value}`),
