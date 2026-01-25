@@ -52,7 +52,6 @@ export const normalizeNativeBarcode = (
   barcode: iOSBarcode | AndroidBarcode,
   frame: Frame,
 ): Barcode => {
-  "worklet";
   if (isIOSBarcode(barcode)) {
     const { payload, symbology, boundingBox, corners } = barcode;
     return {
